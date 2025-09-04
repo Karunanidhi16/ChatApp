@@ -10,7 +10,7 @@ const scm = yup.object().shape({
   password: yup.string().min(6, "").required(""),
 });
 
-export default function Loginpage() {
+export default function Signup() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(scm) });
@@ -24,29 +24,11 @@ export default function Loginpage() {
       navigate("/chatpage"); 
     }, 1500);
   };
-const onSubmit2 = (data)=>{
-  // setLoading(false);
-  // setTimeout(() => {
-  //     console.log("Logged in with:", data);
-  //     setLoading(false);
-  //   //   alert("Login Successful!");
-  //     navigate("/Dashboard"); 
-  //   }, 15000);
-  navigate("/Dashboard")
-}
-const onSubmit3 = (data)=>{
-  setLoading(true)
-  navigate("/Signup")
 
-}
   return (
-
     <div className="flex justify-center items-center min-h-screen bg-gray-900">
-    {/* // <div className="flex justify-center items-center min-h-screen bg-[url('')] bg-cover bg-center"> */}
-
-
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-md">
-        <h2 className="text-2xl font-bold text-center mb-6 text-red-500 ">Login</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-red-500 ">Signup</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-green-700">Email</label>
@@ -59,7 +41,7 @@ const onSubmit3 = (data)=>{
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
           </div>
           <div>
-            <label className="block text-blue-700">Password</label>
+            <label className="block text-blue-700">Set Password</label>
             <input
               type="password"
               {...register("password")}
@@ -76,11 +58,8 @@ const onSubmit3 = (data)=>{
             {loading ? "Login" : "Login"}
           </button>
         </form>
-        <p className="text-sm text-center mt-4">
-          Don’t have an account... 
-          <button onClick={onSubmit3} className="mt-1 hover:underline text-blue-500 " >Signup</button>
-        </p>
-     
+       
+       
       </div>
     </div>
   );

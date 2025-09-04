@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes , Route} from 'react-router-dom'
 import Loginpage from "./pages/loginpage"
 import Chatpage from "./pages/Chatpage"
+import Signup from "./pages/Signup"
 import './App.css'
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
   <BrowserRouter>
   <Routes>
 
-<Route path="/login" element={<Loginpage />} />
+<Route path="/" element={<Loginpage />} />
+<Route path="/Signup" element={<Signup />} />
 
-<Route path="/" element={<Chatpage />} />
+<Route path="/chatpage" element={<Chatpage />} />
 
   </Routes>
   </BrowserRouter>
